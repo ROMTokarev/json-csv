@@ -17,7 +17,7 @@ $ composer require romtokarev/json-csv
 
 ## Usage
 
-### JSON to CSV Converter frmom string
+### JSON to CSV Converter from string
 
 ``` php
 use OzdemirBurak\JsonCsv\File\Json;
