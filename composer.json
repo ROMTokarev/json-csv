@@ -1,13 +1,17 @@
 {
-    "name": "ozdemirburak/json-csv",
+    "name": "romtokarev/json-csv",
     "description": "JSON to CSV and CSV to JSON converters in PHP.",
     "keywords": ["json", "csv", "json to csv", "csv to json", "json2csv", "csv2json"],
-    "homepage": "https://github.com/ozdemirburak/json-csv",
+    "homepage": "https://github.com/ROMTokarev/json-csv",
     "license": "MIT",
     "authors": [
         {
             "name": "Burak Özdemir",
             "homepage": "https://ozdemirburak.com"
+        },
+        {
+            "name": "Roman Tokarev",
+            "email": "79996969490@mail.ru"
         }
     ],
     "require": {
