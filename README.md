@@ -17,13 +17,59 @@ $ composer require ozdemirburak/json-csv
 
 ## Usage
 
-### JSON to CSV Converter
+### JSON to CSV Converter frmom string
+
+``` php
+use OzdemirBurak\JsonCsv\File\Json;
+
+// demo json data
+$testJson = json_encode([
+    [
+        'name' => [
+            'common' => 'Turkey',
+            'official' => 'Republic of Turkey',
+            'native' => 'T\u00fcrkiye'
+        ],
+        'area' => 783562,
+        'latlng' => [39, 35]
+    ],
+    [
+        'name' => [
+            'common' => 'Israel',
+            'official' => 'State of Israel',
+            'native' => '\u05d9\u05e9\u05e8\u05d0\u05dc'
+        ],
+        'area' => 20770,
+        'latlng' => [31.30, 34.45]
+
+    ]
+]);
+
+// JSON to CSV
+$json = (new Json())->convertfromString($testJson);
+// To convert JSON to CSV string
+$csvString = $json->convert();
+// To set a conversion option then convert JSON to CSV and save
+$json->setConversionKey('utf8_encoding', true);
+$json->convertAndSave(__DIR__ . '/above.csv');
+// To convert JSON to CSV and force download on browser
+$json->convertAndDownload();
+```
+
+After the conversion, the resulting CSV data will look like below.
+
+**name\_common**|**name\_official**|**name\_native**|**area**|**latlng\_0**|**latlng\_1**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+Turkey|Republic of Turkey|Türkiye|783562|39|35
+Israel|State of Israel|ישראל|20770|31.3|34.45
+
+### JSON to CSV Converter from file
 
 ``` php
 use OzdemirBurak\JsonCsv\File\Json;
 
 // JSON to CSV
-$json = new Json(__DIR__ . '/above.json');
+$json = (new Json)->convertfromFile(__DIR__ . '/above.json');
 // To convert JSON to CSV string
 $csvString = $json->convert();
 // To set a conversion option then convert JSON to CSV and save

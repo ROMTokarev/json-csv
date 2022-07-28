@@ -20,13 +20,29 @@ abstract class AbstractFile
     protected $filename;
 
     /**
-     * CsvToJson constructor.
+     * Convert from string
+     *
+     * @param string $string
+     * @return object
+     */
+    public function convertfromString(string $string): object
+    {
+        $this->filename = null;
+        $this->data = $string;
+
+        return $this;
+    }
+
+    /**
+     * Convert from file
      *
      * @param string $filepath
+     * @return object
      */
-    public function __construct($filepath)
+    public function convertfromFile(string $filepath): object
     {
-        [$this->filename, $this->data] = [pathinfo($filepath, PATHINFO_FILENAME), file_get_contents($filepath)];
+        [$this->filename, $this->data] = [pathinfo($filepath, PATHINFO_FILENAME), file_get_contents($filepath)]; 
+        return $this;
     }
 
     /**
