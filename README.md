@@ -12,7 +12,7 @@ The most basic CSV to JSON and JSON to CSV converter library in PHP without any 
 Via Composer
 
 ``` bash
-$ composer require ozdemirburak/json-csv
+$ composer require romtokarev/json-csv
 ```
 
 ## Usage
